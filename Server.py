@@ -31,7 +31,7 @@ def broadcast_message(sender, message):
         if client != sender:
             try:
                 # Send the message to the client
-                client.sendall(f'{sender}: {message}'.encode())
+                client.sendall(f' {message}'.encode())
             except socket.error:
                 # If there's an error sending the message, remove the client from the list of connected clients
                 clients.remove(client)

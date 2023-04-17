@@ -3,6 +3,7 @@ from tkinter import ttk
 import threading
 import socket
 
+
 # Create a socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -17,7 +18,7 @@ client_socket.connect((HOST, PORT))
 def send_message():
     message = message_entry.get()
     sender = sender_entry.get()
-    data = {'message': message, 'sender': sender}
+    data = {'sender': sender,'message': message}
     client_socket.sendall(str(data).encode())
     message_entry.delete(0, tk.END)
     if not sender_entry['state'] == 'disabled':
